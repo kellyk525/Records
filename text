@@ -1,0 +1,63 @@
+
+
+
+1. All of the main functions we need to create are put into the "init" functions 
+
+// SETTING UP THE SCENE
+
+1. Scene -- The stage where every object needs to be added in order to be rendered
+2. Camera -- Perspective Camera -- could also be an Orthographic Camera
+3. Renderer -- That will display all the scene using WebGL
+4. One or more objects to render --- create a plane, sea, and a sky (couple of clouds)
+5. One or more lights --- different types of lights available -- mainly use a hemisphere
+light for the atmosphere and directional light for the shadows
+
+// INIT Function
+1. Will contain all the main functions 
+1. createScene -- Set up the scene, camera, and renderer
+2. createLights -- Add the lights
+3. createPlane (Plane, Sea, Sky) -- Add the objects
+4. loop -- To start a loop that will update the object's positions and render the scene on each frame
+
+// CREATE SCENE function
+1. The scene, camera, and the renderer will be created
+
+// HANDLE WINDOW RESIZE
+1. As the screen size can change, we need to update the renderer size and the camera aspect ratio:
+
+// CREATE LIGHTS Function
+1. Will make the objects visible
+
+// CREATE SEA function 
+1. Define the Sea object --- Sea = function()
+2. Define the Sea function
+3. Instantiate the sea with the "createSea" function and add it to the scene
+
+// Create Clouds Object --- Add in random positions of the sky
+1. Number of cubes assembled randomly to form one shape --- cube + cube = cloud
+
+// Create Sky Object -- Contains the clouds
+1. Create an entire sky by duplicating the clouds objects, and place it around random positions around the z-axis
+1. Define a Sky Object
+
+// Creating the airplane
+1. Create a new Airplane object
+2. Create an empty container
+3. Add each piece of the plane into the object (called this.mesh)
+
+// LOOP Function
+1. Create an infinite loop
+2. this loop will rotate the the sea and clouds
+3. this loop will also make the airplane's propeller spin
+4. Adding Mouse Event Listener
+------ Once the document is loaded, need to add a listener to the document, to check if the mouse is moving
+------ modify the init function
+------ normalize the x and y position of the mouse
+
+1. In order to create an object:
+    1. Create a geometry
+    2. Create a material
+    3. Pass them into a mesh
+    4. Add the mesh to our scene
+    5. Combine the objects to create more complex shapes
+

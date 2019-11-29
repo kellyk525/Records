@@ -241,7 +241,7 @@ Sky = function() {
         // Add the mesh of each cloud in the scene
     }
 }
-// hello
+
 
 //  Now we instantiate the sky and push its center a bit towards the bottom of the screen
 var sky;

@@ -574,6 +574,8 @@ function loop() {
             airplane.light.power = 50 + Math.random() * 500;
     }
 
+    updateCameraFov();
+
     updatePlane();
 
     renderer.render(scene, camera);
@@ -582,8 +584,13 @@ function loop() {
     // call the loop function again
 }
 
-// We have moved the call to the render method to the loop function, because each change we make to an object needs to be rendered again.
+// Moved the call to the render method to the loop function, because each change we make to an object needs to be rendered again.
 
+
+function updateCameraFov() {
+    camera.fov = normalize(mousePos.x, -1, 1, 25, 85);
+    camera.updateProjectionMatrix();
+}
 
 
 // THE INIT FUNCTION WITH ALL THE FUNCTIONS

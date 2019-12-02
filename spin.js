@@ -479,6 +479,28 @@ function createHurricane() {
 }
 
 
+Coin = function () {
+    var geom = new THREE.TetrahedronGeometry(5, 0);
+    var mat = new THREE.MeshPhongMaterial({
+        color: 0x009999,
+        shininess: 0,
+        specular: 0xffffff,
+
+        shading: THREE.FlatShading
+    });
+    this.mesh = new THREE.Mesh(geom, mat);
+    this.mesh.castShadow = true;
+    this.angle = 0;
+    this.dist = 0;
+}
+
+function createCoins() {
+    coin = new Coin();
+    scene.add(coin.mesh);
+}
+
+
+
 var mousePos = {x:0, y:0};
 // now handle the mousemove event
 // normalize the x and y position of the mouse
@@ -499,16 +521,24 @@ function updatePlane() {
     // btw 25 and 175 on the vertical axis
     // depending on the mouse position, which ranges from -1 and 1 on both axes
     //  to achieve this we use a normalize function
+    
+    var targetX = normalize(mousePos.x, -.75, .75, -100, 100);
+    var targetY = normalize(mousePos.y, -.75, .75, 25, 175);
+    
 
-    var targetX = normalize(mousePos.x, -1, 1, -100, 100);
-    var targetY = normalize(mousePos.y, -1, 1, 25, 175);
+    // Move the plane at each frame by adding a fraction of the remaining distance
+    airplane.mesh.position.y += (targetY - airplane.mesh.position.y) * 0.1;
 
-    // update the airplane's position
-    airplane.mesh.position.y = targetY;
-    airplane.mesh.position.x = targetX;
-    airplane.propeller.rotation.x += 0.3;
+    // Rotate the plane proportionally to the remaining distance
+    airplane.mesh.rotation.z = (targetY - airplane.mesh.position.y) * 0.0128;
+    airplane.mesh.rotation.x = (airplane.mesh.position.y - targetY) * 0.0064;
+
+
+    // // update the airplane's position
+    // airplane.mesh.position.y = targetY;
+    // airplane.mesh.position.x = targetX;
+    // airplane.propeller.rotation.x += 0.3;
 }
-
 
 function normalize (v, vmin, vmax, tmin, tmax) {
     var nv = Math.max(Math.min(v, vmax), vmin);
@@ -564,6 +594,7 @@ function init(event) {
     createSea();
     createSky();
     createPlane();
+    createCoins();
     createHurricane();
     createRain();
     // createAttack();

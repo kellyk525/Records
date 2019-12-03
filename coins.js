@@ -21,9 +21,3 @@ function createCoins() {
 
 export default createCoins;
 
-
-
-
-
-
-

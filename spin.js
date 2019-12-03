@@ -10,6 +10,35 @@ var Colors = {
     blue: 0x68c3c0,
 };
 
+/////////////// 
+
+// GAME VARIABLES
+
+var game;
+var enemiesPool = [];
+
+function resetGame() {
+    game = {
+        speed: 0,
+        initialSpeed: .00035,
+        baseSpeed: .00035,
+        targetBaseSpeed: 0.00035,
+
+        coinDistanceTolerance: 15,
+        coinValue: 3,
+        coinSpeed: 0.5,
+        coinLastSpawn: 0,
+        distanceForCoinSpawn: 100,
+
+        enemyDistanceTolerance: 10,
+        enemyValue: 10,
+        enemySpeed: 0.6,
+        enemyLastSpawn: 0,
+        distanceForEnemiesSpawn: 50,
+    }
+    
+}
+
 // All the THREEJS RELATED VARIABLES
 
 var scene, camera, renderer, HEIGHT, WIDTH, fieldOfView, aspectRatio, nearPlane, farPlane, container
@@ -115,6 +144,29 @@ function createLights() {
     // to activate the lights, add them to the scene
 
 }
+
+// CREATE THE ENEMY OBJECT
+
+Enemy = function() {
+    var geom = new THREE.TetrahedronGeometry(8,2);
+    var mat = new THREE.MeshPhongMaterial({
+        color: Colors.red,
+        shininess: 0,
+        specular: 0xffffff,
+        shading: THREE.FlatShading
+    })
+    this.mesh = new THREE.Mesh(geom, mat);
+    this.mesh.castShadow = true;
+    this.angle = 0;
+    this.dist = 0;
+}
+
+EnemiesHolder = function() {
+    this.mesh = new THREE.Object3D();
+    this.enemiesAlive = [];
+}
+
+
 
 
 // CREATE AN OBJECT
@@ -494,12 +546,6 @@ Coin = function () {
     this.dist = 0;
 }
 
-function createCoins() {
-    coin = new Coin();
-    scene.add(coin.mesh);
-}
-
-
 
 var mousePos = {x:0, y:0};
 // now handle the mousemove event
@@ -601,7 +647,6 @@ function init(event) {
     createSea();
     createSky();
     createPlane();
-    createCoins();
     createHurricane();
     createRain();
     // createAttack();

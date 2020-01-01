@@ -93,7 +93,7 @@ var load_audio_player = function () {
         ctx.restore();
     }
 
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 30; i++) {
         miracles[i] = new Circle();
         miracles[i].draw();
         
@@ -107,7 +107,8 @@ var load_audio_player = function () {
         this.x = random() * canvas.width;
         this.y = random() * canvas.height;
         this.radius = random() * 100 + 50;
-        this.color = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
+        this.color = 'rgb(13,78,168)';
+        // this.color = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
     }
 
 
@@ -120,17 +121,67 @@ var load_audio_player = function () {
         // Creating the circle everytime frequency data updates
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        // Allowing only higher frequencies to show to avoid clutter on canvas (between 190 and 250 was good)
         for (var i = 1; i < miracles.length; i++) {
-            miracles[i].radius = frequencyData[i] * 2;
-            miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
-            miracles[i].draw();
+            if (frequencyData[i] < 250 && frequencyData[i] > 290 ) {
+                miracles[i].radius = frequencyData[i] * 0.6;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
         }
 
-        for (var i = 1; i < frequencyData.length; i += 10) {
-            ctx.fillStyle = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
-            ctx.fillRect(i + 300, canvas.height - frequencyData[i] * 1.5, 10, canvas.height);
-            ctx.strokeRect(i + 300, canvas.height - frequencyData[i] * 1.5, 10, canvas.height);
+        for (var i = 1; i < miracles.length; i++) {
+            if (frequencyData[i] < 250 && frequencyData[i] > 120) {
+                miracles[i].radius = frequencyData[i] * 0.5;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
+
         }
+        for (var i = 1; i < miracles.length; i++) {
+            if (frequencyData[i] < 250 && frequencyData[i] > 120) {
+                miracles[i].radius = frequencyData[i] * 0.4;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
+
+        }
+        for (var i = 1; i < miracles.length; i++) {
+            if (frequencyData[i] < 250 && frequencyData[i] > 120) {
+                miracles[i].radius = frequencyData[i] * 0.3;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
+
+        }
+        for (var i = 1; i < miracles.length; i++) {
+            if (frequencyData[i] < 250 && frequencyData[i] > 120) {
+                miracles[i].radius = frequencyData[i] * 0.4;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
+
+        }
+        for (var i = 1; i < miracles.length; i++) {
+            if (frequencyData[i] < 250 && frequencyData[i] > 120) {
+                miracles[i].radius = frequencyData[i] * 0.3;
+                // miracles[i].radius = frequencyData[i] * 2;
+                miracles[i].y = miracles[i].y > canvas.height ? 0 : miracles[i].y + 1;
+                miracles[i].draw();
+            }
+
+        }
+
+        // for (var i = 1; i < frequencyData.length; i += 10) {
+        //     ctx.fillStyle = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
+        //     ctx.fillRect(i + 300, canvas.height - frequencyData[i] * 1.5, 10, canvas.height);
+        //     ctx.strokeRect(i + 300, canvas.height - frequencyData[i] * 1.5, 10, canvas.height);
+        // }
 
 
         circles.each(function (index, circle) {
@@ -204,7 +255,8 @@ var load_audio_player = function () {
 
 //Synthwave playlist :)
 var mp3Array = [
-    "love.mp3", //vogel dreamwave,
+    "love.mp3", 
+    "sleep.mp3"
 ]
 
 
@@ -216,13 +268,23 @@ function play_song(element) {
             load_audio_player();
         }
         $("#player")[0].play();
-    } else {
+    } else if ($(element).text() == "sleep") {
+        $(element).text('sleep pause');
+        if ($("#player").attr('src') == undefined) {
+            $("#player").attr('src', mp3Array[1]);
+            load_audio_player();
+        }
+        $("#player")[0].play();
+
+    } else if ($(element).text() == "pause") {
         $(element).text('play');
+        $("#player")[0].pause();
+    } else if ($(element).text() == "sleep pause"){
+        $(element).text('sleep');
         $("#player")[0].pause();
     }
 
 }
-
 
 
 // // SETTING THE COLORS

@@ -74,6 +74,8 @@ var load_audio_player = function () {
     var bars = $("#visualisation > div");
     var circles = $("#div-vis-round > div");
 
+    // Creating the canvas for the moving circles
+
     canvas = document.createElement('canvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -97,7 +99,6 @@ var load_audio_player = function () {
         
     }
 
-
     function getRandomColor() {
         return random() * 255 >> 0;
     }
@@ -116,6 +117,7 @@ var load_audio_player = function () {
         analyser.getByteFrequencyData(frequencyData);
 
 
+        // Creating the circle everytime frequency data updates
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         for (var i = 1; i < miracles.length; i++) {

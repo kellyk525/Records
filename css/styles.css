@@ -60,15 +60,18 @@ audio {
     bottom: 0px;
 }
 
+/* Main Circle In Document */
 #round-visualisation{
     position: absolute;
-    width: 30%; 
-    height: 30%; 
-    top: 54%; 
-    left: 54%; 
-    background:black; 
+    width: 45%; 
+    height: 45%; 
+    top: 59%; 
+    left: 39%; 
+    background: black; 
+    box-shadow: 1px 1px 10px black;
     border-radius: 50%;
     z-index: 1000;
+    color: rgba(50, 209, 211, 0.557);
 }
 
 

@@ -64,11 +64,11 @@ var load_audio_player = function () {
 
     /* Draw barcount number of circles and barcount x 2 number of bars */
     for (i = 0; i < barcount - 1; i++) {
-        $("<div/>").css("width", barSpacingPercent / 1.5 + "%").css("left", (i * barSpacingPercent) + "%").appendTo(visualisation);
+        $("<div/>").css("width", barSpacingPercent / 4 + "%").css("left", (i * barSpacingPercent) + "%").appendTo(visualisation);
         $("<div/>").attr("class", "vis-circle").appendTo(circles);
     }
     for (i; i < (barcount * 2) - 1; i++) {
-        $("<div/>").css("width", barSpacingPercent / 1.5 + "%").css("left", (i * barSpacingPercent) + "%").appendTo(visualisation);
+        $("<div/>").css("width", barSpacingPercent / 4 + "%").css("left", (i * barSpacingPercent) + "%").appendTo(visualisation);
     }
 
     var bars = $("#visualisation > div");
@@ -192,25 +192,29 @@ var load_audio_player = function () {
             }
 
             var factor = (80 * frequencyData[index]) / 255;
-            circle.style.top = (100 - (factor)) / 1.5 + "%";
-            circle.style.left = (100 - (factor)) / 1.5 + "%";
-            circle.style.height = (factor * 1.5 ) + "%";
-            circle.style.width = (factor * 1.5) + "%";
+            circle.style.top = (80 - (factor)) / 1 + "%";
+            circle.style.left = (62 - (factor)) / 1 + "%";
+            circle.style.height = (factor * 2) + "%";
+            circle.style.width = (factor * 2) + "%";
+            circle.style.boxShadow = "2px 10px 10px rgba(50, 209, 211, 0.55)";
 
             if (factor < 20) {
-                circle.style.border = "solid 2px #bf1eaf";
+                circle.style.border = "none";
             } else if (factor < 40) {
-                circle.style.border = "solid 2px #bf1e5e";
+                circle.style.border = "none";
             } else if (factor < 60) {
-                circle.style.border = "solid 2px #3d92e3";
-            } else {
-                circle.style.border = "solid 2px #53c68c";
+                circle.style.border = "solid 4px rgba(238, 183, 221, 0.5)";
+            } else if (factor < 70) {
+                circle.style.border = "solid 2px rgba(50, 209, 211, 0.55)";
+                // circle.style.border = "solid 4px rgb(5, 159, 123)";
             }
         });
 
         bars.each(function (index, bar) {
             var height = 0;
             var barcount = (window.barPercent * window.frequencyCount) / 100;
+
+            // diving the left/right side for the bars
             if (index < barcount / 2) {
                 height = (200 * frequencyData[index] / 255);
                 bar.style.height = height + 'px';
@@ -222,16 +226,19 @@ var load_audio_player = function () {
                 return;
             }
 
+            bar.style.borderTop = "1px solid blue" ;
+            bar.style.boxShadow = "10px 20px 30px blue";
+
             //Appling gradient color for each visualisation bar according to their height 
-            if (height < 20) {
-                bar.style.background = "linear-gradient(#53c68c,#d872b3, #bf1e5e)";
-            } else if (height < 100) {
-                bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
-            } else if (height < 150) {
-                bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
-            } else {
-                bar.style.background = "linear-gradient(#53c68c,#3d92e3, #bf1e5e)";
-            }
+            // if (height < 20) {
+            //     bar.style.background = "linear-gradient(#53c68c,#d872b3, #bf1e5e)";
+            // } else if (height < 100) {
+            //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
+            // } else if (height < 150 && height < 200) {
+            //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
+            // } else {
+            //     bar.style.background = "linear-gradient(#53c68c,#3d92e3, #bf1e5e)";
+            // }
         });
     };
     $("#player").bind('canplay canplaythrough', function () {
@@ -241,6 +248,10 @@ var load_audio_player = function () {
     if ($("#player").readyState > 3) {
         connectAnalyzer();
     }
+    
+
+    // document.getElementById("player-two").style.display = "none";
+    
 
     function connectAnalyzer() {
         if (window.connected == true) {
@@ -270,6 +281,7 @@ function play_song(element) {
             load_audio_player();
         }
         $("#player")[0].play();
+
     } else if ($(element).text() == "sleep") {
         $(element).text('sleep pause');
         if ($("#player").attr('src') == undefined) {

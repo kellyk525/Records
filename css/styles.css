@@ -18,11 +18,12 @@ body {
     background-position: center;
     padding-top: 20px;
     font-family: 'Open Sans', sans-serif;
+    background: url("../texture-main.jpg")
     /* background: rgb(215,125,125);
     background: linear-gradient(98deg, rgba(215,125,125,1) 0%, rgba(215,125,125,1) 33%, rgba(215,125,125,1) 52%, rgba(186,98,122,1) 75%, rgba(185,99,123,1) 82%, rgba(205,109,133,1) 98%, rgba(205,109,132,1) 100%); */
 
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    /* background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
 }
 
 audio {
@@ -42,7 +43,7 @@ audio {
 
 #div-eq-container {
     /* height: 255px; */
-    height: 450px;
+    height: 700px;
     position: relative;
     margin: 10px;
     -webkit-box-reflect: below 53px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.30)));
@@ -50,7 +51,7 @@ audio {
 
 .vis-circle {
     position: absolute;
-    /* border-radius: 50%; */
+    border-radius: 50%;
 }
 
 #visualisation > div {
@@ -63,18 +64,21 @@ audio {
     position: absolute;
     width: 30%; 
     height: 30%; 
-    top:48%; 
-    left: 48%; 
-    background:#984978; 
-    border-radius: 50%
+    top: 54%; 
+    left: 54%; 
+    background:black; 
+    border-radius: 50%;
+    z-index: 1000;
 }
 
 
+/* The Actual Square */
 #div-vis-round{
     position: relative; 
-    top: 0%; 
-    width: 30vmin; 
-    height: 30vmin;
+    top: 20%;
+    left: -5%; 
+    width: 40vmin; 
+    height: 40vmin;
 }
 
 .center-div{
@@ -96,4 +100,24 @@ audio {
     border: 1px solid black;
     margin-top: 20px;
     cursor:pointer;
+}
+
+
+canvas {
+    position: absolute;
+    top: 0;
+    transform: translateX(-24%);
+    opacity: 0.5;
+}
+
+.kelly-info h1 {
+    font-family: Assistant;
+    color: white;
+    font-size: 100px;
+    font-weight: 100;
+    text-shadow: -7px 0 1px rgba(109, 18, 18, 0.7), 0 2px 0px rgba(75, 16, 16, 0.7), 1px 0 rgba(181, 178, 178, 0.7), 0 -1px rgba(181, 178, 178, 0.7);
+    Position: absolute;
+    top: 0;
+    left: 60px;
+
 }

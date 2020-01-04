@@ -79,7 +79,9 @@ var load_audio_player = function () {
     canvas = document.createElement('canvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    document.body.appendChild(canvas);
+    kelly = document.getElementById('visualisation');
+    kelly.appendChild(canvas);
+    // document.body.appendChild(canvas);
     ctx = canvas.getContext('2d');
 
     Circle.prototype.draw = function () {
@@ -93,7 +95,7 @@ var load_audio_player = function () {
         ctx.restore();
     }
 
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 20; i++) {
         miracles[i] = new Circle();
         miracles[i].draw();
         
@@ -106,9 +108,9 @@ var load_audio_player = function () {
     function Circle() {
         this.x = random() * canvas.width;
         this.y = random() * canvas.height;
-        this.radius = random() * 100 + 50;
-        this.color = 'rgb(13,78,168)';
-        // this.color = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
+        this.radius = random() * 100 + 220;
+        // this.color = 'rgb(13,78,168)';
+        this.color = 'rgb(' + getRandomColor() + ',' + getRandomColor() + ',' + getRandomColor() + ')';
     }
 
 

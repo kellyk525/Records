@@ -210,36 +210,36 @@ var load_audio_player = function () {
             }
         });
 
-        bars.each(function (index, bar) {
-            var height = 0;
-            var barcount = (window.barPercent * window.frequencyCount) / 100;
+        // bars.each(function (index, bar) {
+        //     var height = 0;
+        //     var barcount = (window.barPercent * window.frequencyCount) / 100;
 
-            // diving the left/right side for the bars
-            if (index < barcount / 2) {
-                height = (200 * frequencyData[index] / 255);
-                bar.style.height = height + 'px';
-                offset++;
-            } else if (index < barcount) {
-                height = (200 * frequencyData[--offset] / 255);
-                bar.style.height = height + 'px';
-            } else {
-                return;
-            }
+        //     // diving the left/right side for the bars
+        //     if (index < barcount / 2) {
+        //         height = (200 * frequencyData[index] / 255);
+        //         bar.style.height = height + 'px';
+        //         offset++;
+        //     } else if (index < barcount) {
+        //         height = (200 * frequencyData[--offset] / 255);
+        //         bar.style.height = height + 'px';
+        //     } else {
+        //         return;
+        //     }
 
-            bar.style.borderTop = "1px solid blue" ;
-            bar.style.boxShadow = "10px 20px 30px blue";
+        //     bar.style.borderTop = "1px solid blue" ;
+        //     bar.style.boxShadow = "10px 20px 30px blue";
 
-            //Appling gradient color for each visualisation bar according to their height 
-            // if (height < 20) {
-            //     bar.style.background = "linear-gradient(#53c68c,#d872b3, #bf1e5e)";
-            // } else if (height < 100) {
-            //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
-            // } else if (height < 150 && height < 200) {
-            //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
-            // } else {
-            //     bar.style.background = "linear-gradient(#53c68c,#3d92e3, #bf1e5e)";
-            // }
-        });
+        //     //Appling gradient color for each visualisation bar according to their height 
+        //     // if (height < 20) {
+        //     //     bar.style.background = "linear-gradient(#53c68c,#d872b3, #bf1e5e)";
+        //     // } else if (height < 100) {
+        //     //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
+        //     // } else if (height < 150 && height < 200) {
+        //     //     bar.style.background = "linear-gradient(#53c68c,#63a8e9, #bf1e5e)";
+        //     // } else {
+        //     //     bar.style.background = "linear-gradient(#53c68c,#3d92e3, #bf1e5e)";
+        //     // }
+        // });
     };
     $("#player").bind('canplay canplaythrough', function () {
         connectAnalyzer();

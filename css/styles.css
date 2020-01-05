@@ -16,9 +16,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     font-family: 'Open Sans', sans-serif;
-    background: url("../texture-main.jpg");
+    background: url("../texture-main-two.jpg");
+    /* transform: rotate(-90deg); */
     /* background: rgb(215,125,125);
     background: linear-gradient(98deg, rgba(215,125,125,1) 0%, rgba(215,125,125,1) 33%, rgba(215,125,125,1) 52%, rgba(186,98,122,1) 75%, rgba(185,99,123,1) 82%, rgba(205,109,133,1) 98%, rgba(205,109,132,1) 100%); */
 
@@ -30,10 +31,34 @@ body {
 }
 
 audio {
-    width: 80%;
-    background: white;
-    opacity: 0.75;
+    width: 29%;
+    opacity: 70%;
+    height: 30px;
+    box-shadow: 1px 1px 10px rgb(57, 45, 162);
+    border-radius: 20px;
+    position: absolute;
+    right: 2.6%;
+    bottom: 7.8%;
+    margin-left: 0px;
+    margin-top: 0px;
 }
+
+audio::-webkit-media-controls-panel{
+    background: rgba(236, 133, 115, 0.788);
+    background: rgb(57, 45, 162);
+    /* background: rgb(54, 210, 245); */
+    color: white;
+    box-shadow: 1px 1px 10px white;
+}
+
+audio::-webkit-media-controls-current-time-display{
+  color: white;
+}
+
+audio::-webkit-media-controls-time-remaining-display{
+  color: white;
+}
+
 
 #div-player-container {
 
@@ -51,6 +76,7 @@ audio {
     position: relative;
     margin: 10px;
     -webkit-box-reflect: below 53px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.30)));
+    /* width: 1000px; */
 }
 
 .vis-circle {
@@ -61,7 +87,8 @@ audio {
 #visualisation > div {
     display: inline-block;
     position: absolute;
-    /* bottom: 0px; */
+    bottom: 0px;
+    /* transform: rotate(-45deg); */
 }
 
 /* Main Circle In Document */
@@ -140,17 +167,77 @@ canvas {
     position: absolute;
     top: 0;
     transform: translateX(-24%);
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .kelly-info h1 {
-    font-family: Assistant;
-    color: white;
-    font-size: 100px;
-    font-weight: 100;
-    text-shadow: -7px 0 1px rgba(109, 18, 18, 0.7), 0 2px 0px rgba(75, 16, 16, 0.7), 1px 0 rgba(181, 178, 178, 0.7), 0 -1px rgba(181, 178, 178, 0.7);
+    font-family: Dancing Script;
+    color: rgba(255, 255, 255, 0.886);
+    font-size: 70px;
+    font-weight: 300;
+    text-shadow: -7px 0 1px rgba(187, 16, 16, 0.7), 0 2px 0px rgba(75, 16, 16, 0.7), 1px 0 rgba(181, 178, 178, 0.7), 0 -1px rgba(181, 178, 178, 0.7);
     Position: absolute;
     top: 0;
     left: 60px;
+    letter-spacing: 5px;
+    -webkit-box-reflect: below -15px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.096)));
 
+
+}
+
+.kelly-name p {
+    position: absolute;
+    font-family: Poiret One;
+    font-size: 14px;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: 300;
+    line-height: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+}
+
+.kelly {
+    position: absolute;
+    top: 60%;
+    z-index: 500;
+    left: 32%;
+
+    top: 70%;
+    left: 52%;
+    transform: translate(-30%, -30%);
+    color: white;
+    /* background: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    width: 200px;
+    
+}
+
+.kelly h6 {
+    font-family: Assistant;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    /* background: red; */
+    margin: 0px;
+    margin-bottom: 15px;
+
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    /* background: red; */
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px;
+    width: 120px;
+    
+}
+
+i {
+    color: white;
 }

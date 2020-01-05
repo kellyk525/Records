@@ -95,7 +95,7 @@ var load_audio_player = function () {
         ctx.restore();
     }
 
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 18; i++) {
         miracles[i] = new Circle();
         miracles[i].draw();
         
@@ -287,20 +287,6 @@ function play_song(element) {
     }
 
 }
-
-
-        // } else if ($(element).text() == "sleep") {
-        //     $(element).text('sleep pause');
-        //     if ($("#player").attr('src') == undefined) {
-        //         $("#player").attr('src', mp3Array[1]);
-        //         load_audio_player();
-        // }
-        // $("#player")[0].play();
-        //  else if ($(element).text() == "sleep pause") {
-        //         $(element).text('sleep');
-        //         $("#player")[0].pause();
-        //     }
-
 
 // // SETTING THE COLORS
 

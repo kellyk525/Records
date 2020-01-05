@@ -18,16 +18,20 @@ body {
     background-position: center;
     padding-top: 20px;
     font-family: 'Open Sans', sans-serif;
-    background: url("../texture-main.jpg")
+    background: url("../texture-main.jpg");
     /* background: rgb(215,125,125);
     background: linear-gradient(98deg, rgba(215,125,125,1) 0%, rgba(215,125,125,1) 33%, rgba(215,125,125,1) 52%, rgba(186,98,122,1) 75%, rgba(185,99,123,1) 82%, rgba(205,109,133,1) 98%, rgba(205,109,132,1) 100%); */
 
+
+    /* background: rgb(106,5,49);
+    background: radial-gradient(circle, rgba(106,5,49,1) 0%, rgba(6,38,75,1) 100%); */
     /* background: rgb(63,94,251);
     background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
 }
 
 audio {
-    width: 100%;
+    width: 80%;
+    background: white;
     opacity: 0.75;
 }
 
@@ -57,21 +61,28 @@ audio {
 #visualisation > div {
     display: inline-block;
     position: absolute;
-    bottom: 0px;
+    /* bottom: 0px; */
 }
 
 /* Main Circle In Document */
 #round-visualisation{
     position: absolute;
-    width: 45%; 
-    height: 45%; 
-    top: 59%; 
-    left: 39%; 
+    width: 100%; 
+    height: 100%; 
+    top: 30%; 
+    left: 13%; 
+    /* top: 21%; 
+    left: 3%;  */
     background: black; 
-    box-shadow: 1px 1px 10px black;
+    box-shadow: 1px 1px 30px rgb(122, 224, 242);
+    border: 2px solid rgb(122, 224, 242);
+    /* box-shadow: inset 1px 1px 20px rgb(222, 175, 242); */
     border-radius: 50%;
-    z-index: 1000;
+    z-index: 100;
     color: rgba(50, 209, 211, 0.557);
+
+    /* background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
 }
 
 
@@ -82,6 +93,8 @@ audio {
     left: -5%; 
     width: 40vmin; 
     height: 40vmin;
+
+    
 }
 
 .center-div{
@@ -99,10 +112,27 @@ audio {
 
 .play-button{
     padding: 5px 20px;
-    border-radius: 4px;
-    border: 1px solid black;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.301);
     margin-top: 20px;
     cursor:pointer;
+    z-index: 500;
+    position: absolute;
+    top: 88%;
+    left: 48%;
+    font-family: Assistant;
+    text-transform: uppercase;
+    background: transparent;
+    color: white;
+    letter-spacing: 4px;
+    font-size: 14px;
+    width: 100px;
+    height: 35px;
+    outline: none;
+    /* border-width: 0px; */
+
+    
+
 }
 
 

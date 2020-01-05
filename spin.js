@@ -269,7 +269,7 @@ var load_audio_player = function () {
 //Synthwave playlist :)
 var mp3Array = [
     "love.mp3", 
-    "sleep.mp3"
+    "jasmine.mp3"
 ]
 
 
@@ -277,28 +277,29 @@ function play_song(element) {
     if ($(element).text() == "play") {
         $(element).text('pause');
         if ($("#player").attr('src') == undefined) {
-            $("#player").attr('src', mp3Array[0]);
-            load_audio_player();
-        }
-        $("#player")[0].play();
-
-    } else if ($(element).text() == "sleep") {
-        $(element).text('sleep pause');
-        if ($("#player").attr('src') == undefined) {
             $("#player").attr('src', mp3Array[1]);
             load_audio_player();
         }
         $("#player")[0].play();
-
-    } else if ($(element).text() == "pause") {
+    } else {
         $(element).text('play');
-        $("#player")[0].pause();
-    } else if ($(element).text() == "sleep pause"){
-        $(element).text('sleep');
         $("#player")[0].pause();
     }
 
 }
+
+
+        // } else if ($(element).text() == "sleep") {
+        //     $(element).text('sleep pause');
+        //     if ($("#player").attr('src') == undefined) {
+        //         $("#player").attr('src', mp3Array[1]);
+        //         load_audio_player();
+        // }
+        // $("#player")[0].play();
+        //  else if ($(element).text() == "sleep pause") {
+        //         $(element).text('sleep');
+        //         $("#player")[0].pause();
+        //     }
 
 
 // // SETTING THE COLORS

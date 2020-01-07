@@ -46,9 +46,9 @@ audio {
 audio::-webkit-media-controls-panel{
     background: rgba(236, 133, 115, 0.788);
     background: rgb(57, 45, 162);
-    /* background: rgb(54, 210, 245); */
     color: white;
     box-shadow: 1px 1px 10px white;
+    /* background: rgb(54, 210, 245); */
 }
 
 audio::-webkit-media-controls-current-time-display{
@@ -71,11 +71,11 @@ audio::-webkit-media-controls-time-remaining-display{
 }
 
 #div-eq-container {
-    /* height: 255px; */
     height: 700px;
     position: relative;
     margin: 10px;
     -webkit-box-reflect: below 53px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.30)));
+    /* height: 255px; */
     /* width: 1000px; */
 }
 
@@ -103,11 +103,11 @@ audio::-webkit-media-controls-time-remaining-display{
     background: black; 
     box-shadow: 1px 1px 30px rgb(122, 224, 242);
     border: 2px solid rgb(122, 224, 242);
-    /* box-shadow: inset 1px 1px 20px rgb(222, 175, 242); */
     border-radius: 50%;
     z-index: 100;
     color: rgba(50, 209, 211, 0.557);
-
+    
+    /* box-shadow: inset 1px 1px 20px rgb(222, 175, 242); */
     /* background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
 }
@@ -127,10 +127,7 @@ audio::-webkit-media-controls-time-remaining-display{
 .center-div{
     display: block;
     margin-right: auto;
-    margin-left: auto;
-
-    /* background: red; */
-    
+    margin-left: auto;  
 }
 
 .button-container{
@@ -157,8 +154,6 @@ audio::-webkit-media-controls-time-remaining-display{
     height: 35px;
     outline: none;
     /* border-width: 0px; */
-
-    
 
 }
 
@@ -207,7 +202,6 @@ canvas {
     left: 52%;
     transform: translate(-30%, -30%);
     color: white;
-    /* background: blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,7 +215,6 @@ canvas {
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 4px;
-    /* background: red; */
     margin: 0px;
     margin-bottom: 15px;
 
@@ -230,7 +223,6 @@ canvas {
 ul {
     list-style: none;
     display: flex;
-    /* background: red; */
     flex-direction: row;
     justify-content: space-around;
     padding: 0px;

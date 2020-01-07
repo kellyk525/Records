@@ -1,6 +1,5 @@
 
 
-
 window.connected = false;
 window.frequencyCount = 128;
 window.barPercent = 88;
@@ -266,7 +265,7 @@ var load_audio_player = function () {
 }
 
 
-//Synthwave playlist :)
+//Synthwave playlist 
 var mp3Array = [
     "love.mp3", 
     "jasmine.mp3"

@@ -3,7 +3,6 @@
 Record is a sound visualizer app that uses Web Audio API in conjunction with JavaScript, Canvas, and CSS3 to visualize audio input. This project utilizes Web Audio API to play the audio file and analyze the frequencies of the audio input. Using the Audio Context, I have created the Analyzer Node to generate real-time frequency and time-domain analysis information of the audio file. The processed data was used to dynamically render frequency response graphics using Canvas and JavaScript. 
 
 ![](https://github.com/kellyk525/Records/blob/master/images/first.png)
-![](https://github.com/kellyk525/Records/blob/master/images/screen.gif)
 
 # Technologies Used
 
@@ -12,6 +11,8 @@ Record is a sound visualizer app that uses Web Audio API in conjunction with Jav
 * CSS3
 * Canvas 
 * [HTML5] Web Audio API
+
+![](https://github.com/kellyk525/Records/blob/master/images/screen.gif)
 
 # Functionality
 
